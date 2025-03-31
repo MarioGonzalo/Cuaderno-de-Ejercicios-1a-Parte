@@ -260,5 +260,97 @@ Eliminamos las posiciones 1, 2, 4 y 8, obteniendo los datos útiles en las posic
 
 $$0101101011$$
 
+# Pregunta 13
 
+¿A qué protocolo de la capa de enlace de datos corresponde el siguiente esquema
+temporal?
+
+![Image](https://github.com/user-attachments/assets/8ceac5d1-145c-42e7-a9dd-ec232438543c)
+
+- El protocolo de la imagen corresponde al protocolo de ventana corrediza concretamente el protocolo Stop-And-Wait ARQ ya que:
+
+  - Envía un solo marco a la vez y espera la confirmación (ACK) antes de enviar el siguiente.
+  - Cada trama tiene un número de secuencia (S) que alterna entre 0 y 1.
+  - El receptor envía un ACK (reconocimiento) con el número esperado de la siguiente trama.
+  - El transmisor solo envía la siguiente trama cuando recibe el ACK correcto.
+
+# Pregunta 14
+
+¿Se puede aplicar el protocolo del ejercicio anterior en el siguiente escenario?
+
+![Image](https://github.com/user-attachments/assets/ecc06bb2-1f12-4db4-811e-8e95caddc592)
+
+No debido a que en este ejemplo el ACK se envia por separado, es decir, este no se incluye dentro del paquete enviado por lo que no es de ventana corrediza
+
+# Pregunta 15
+
+Dibujar un diagrama de ventana deslizante con un receptor con buffer para tres tramas
+y un transmisor que dispone de 5 tramas desordenadas que llegan en el orden 0, 3, 2,
+4, 1.
+
+# Pregunta 16
+
+Un canal coaxial con FDM con una tasa de transmisión de 500 Mbits/s con una longitud
+media de trama de 1/𝜇 = 12584 bits y una tasa de llegada de trama 𝜆 = 20000 trama/s:
+a) ¿Qué retardo tendrá?
+
+Primero hay que calcular la tasa de servicio
+
+$$\mu = \frac{C}{L} = \frac{500 * 10^6}{12584} = 39733 trama/s$$
+
+Con esto hallamos el retardo con la fórmula
+
+$$ \frac{1}{\mu - \lambda} = \frac{1}{39733 - 20000} = \frac{1}{19733} = 5,067 * 10^{-5} segundos $$
+
+b) Si lo comparten entre 256 usuarios ¿cuántas portadoras serán necesarias?
+
+Si el canal se comparte entre N=256 usuarios y usa FDM (Multiplexación por División de Frecuencia), entonces cada usuario necesita una portadora separada.
+
+Por lo tanto, el número de portadoras necesarias es 256.
+
+c) ¿Cuánto tiempo tardará un nodo en detectar una colisión?
+
+En un canal de transmisión, el tiempo para detectar una colisión está dado por:
+
+$$ T_{col} = \frac{2*L}{C} = \frac{2 *12584}{500 * 10^6} = 5,034 * 10^{-5} segundos
+
+# Pregunta 17
+
+Representar la trama “1111111101011010101011” con codificación Manchester y
+Manchester diferencial. Indicar las unidades y magnitudes en los ejes.
+
+1. Codificación Manchester
+   
+La codificación Manchester sigue la regla:
+
+Bit 1 → Transición de alto a bajo (↓).
+
+Bit 0 → Transición de bajo a alto (↑).
+
+Cada bit tiene una transición en la mitad del período del reloj.
+
+2. Codificación Manchester Diferencial
+   
+En Manchester Diferencial, la regla es:
+
+Bit 1 → No hay transición al inicio del bit (mantiene el nivel anterior), pero hay transición en la mitad del bit.
+
+Bit 0 → Hay transición al inicio del bit y también en la mitad.
+
+Este método es más robusto contra errores de polaridad en la señal.
+
+# Pregunta 18
+
+Para soportar 15 nodos activos simultáneamente, utilizaremos dos piconets interconectadas, formando una scatternet:
+
+Piconet 1: 1 Maestro + 7 Esclavos activos.
+
+Piconet 2: 1 Maestro + 8 Esclavos activos (uno de ellos es un puente entre ambas redes).
+
+Un nodo puente participa en ambas piconets, sincronizando la comunicación.
+
+# Pregunta 19
+
+
+# Pregunta 20
 
