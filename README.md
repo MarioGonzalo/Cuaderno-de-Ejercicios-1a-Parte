@@ -55,9 +55,9 @@ $$R = R_s * m = 100 * 10^9 * 2 = 200 * 10^9 = 200 GHz = 0,2 THz$$
 ## Ejercicio 3
 
 Si en el sistema anterior se introduce un conector de fibra con un 20% de pérdidas,
-responder a las siguientes cuestiones:
-a) ¿Se verá afectada la tasa de transmisión máxima?
-b) ¿Qué velocidad máxima se tendrá en la salida?
+responder a las siguientes cuestiones: <br>
+a) ¿Se verá afectada la tasa de transmisión máxima? <br>
+b) ¿Qué velocidad máxima se tendrá en la salida? <br>
 
 ## Ejercicio 4
 
@@ -137,6 +137,26 @@ Donde los datos útiles serán 1024 bytes y los datos totales serán 3960 por lo
 
 $$\frac{1024}{3960} * 100 = 25,858%$$
 
+# Ejercicio 8
+
+Un sistema satélite divide la información de la capa 3 en bloques de 1904 bits, a los
+que añade una cabecera de 64 bits. Si cada trama tarda en transmitirse 20 ms y la
+latencia del satélite es de 85 ms, ¿cuánto tiempo tardará en realizar la transmisión de
+5 Mbytes de información?
+
+Se han de enviar 5Mb de información que pasado a bits será
+
+$$5Mb = 5 * 10^6 bytes = 4 * 10^7 \text{ bits}$$
+
+Las tramas son de 1904 bits por lo que para hallar la cantidad de tramas habrá que dividir la cantidad a transmitir entre el tamaño de tramas:
+
+$$\frac{4 * 10^7}{1904} = 3,66 * 10^4 \text{ tramas}$$
+
+Ahora multiplicamos las tramas por su tiempo de transmisión
+
+$$ 3,66 * 10^4 * 20ms = 7,31 * 10^5 ms$$
+
+Se habrá de añadir la latencia a este tiempo aunque es ignorable ya que es muy baja comparada con el tiempo total de transmisión
 
 
 
