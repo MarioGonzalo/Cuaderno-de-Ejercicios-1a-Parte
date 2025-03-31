@@ -203,10 +203,62 @@ El paquete transmitido por la capa de enlace de datos es:
 
 0101010101111010011101101010010101001
 
+# Ejercicio 10
 
+Un fabricante indica que su sistema integra un CRC-8 con el siguiente polinomio
+generador: 𝐺𝐺(𝑥𝑥) = 𝑥𝑥8 + 𝑥𝑥7 + 𝑥𝑥2 + 1. Plantear los pasos que se deben realizar para
+calcular la trama resultante, considerando que el CRC se aplica al final de la trama 2
+del ejercicio anterior.
 
+El CRC-8 genera un código de redundancia cíclica de 8 bits, por lo que la nueva trama tendrá 37 + 8 = 45 bits.
 
+El polinomio generador en binario es:
 
+$$G(x) = 100000101$$
+
+Agregamos 8 bits ceros al final de la trama para calcular el CRC:
+
+0101010101111010011101101010010101001000000000
+
+Esto extiende la trama a 45 bits.
+
+Realizamos la división binaria (mod 2) entre esta nueva secuencia y el polinomio 100000101.
+
+Realizamos la división binaria (similar a la división larga en decimal), donde:
+
+Si el bit superior es 1, restamos (XOR) el polinomio generador.
+
+Si el bit superior es 0, simplemente bajamos el siguiente bit.
+
+La operación se realiza en los 37 bits originales, considerando los 8 ceros agregados al final.
+
+Al final del proceso, el residuo de la división (8 bits) será el CRC-8.
+
+El resultado final de la trama con el CRC-8 aplicado es:
+
+010101010111101001110110101001010100111001100
+
+# Pregunta 11
+
+¿Cuántos errores pueden llegar a corregir la codificación H(15,11) y el CRC-32?
+
+La codificación H(15,11) puede detectar dos errores pero solo puede corregir uno mientras que el CRC-32 destaca en detectar errores pero no los puede corregir
+
+# Pregunta 12
+
+La cabecera es: "11111111" (primeros 8 bits).
+
+Los datos codificados son: "01011010101011" (14 bits restantes).
+
+-El código H(14,10):
+  -Usa 10 bits de datos.
+  -Agrega 4 bits de paridad.
+
+Los bits de paridad están en las posiciones 1, 2, 4 y 8.
+
+Eliminamos las posiciones 1, 2, 4 y 8, obteniendo los datos útiles en las posiciones restantes:
+
+$$0101101011$$
 
 
 
