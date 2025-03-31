@@ -158,8 +158,50 @@ $$ 3,66 * 10^4 * 20ms = 7,31 * 10^5 ms$$
 
 Se habrá de añadir la latencia a este tiempo aunque es ignorable ya que es muy baja comparada con el tiempo total de transmisión
 
+# Ejercicio 9
 
+Calcular el resultado de un paquete de datos “1111011101010101” en un sistema de
+enlace de datos con las siguientes especificaciones:<br>
+• Secuencia de inicio de trama “010101010”.<br>
+• Protección frente a errores H(7,4).<br>
+• Tamaño máximo por trama de 4 bytes.
 
+## Paso 1: División en Tramas
+
+Dado que el tamaño máximo por trama es de 4 bytes (= 32 bits) y nuestro paquete es de 16 bits, se puede encapsular en una sola trama.
+
+## Paso 2: Codificación con Hamming (7,4)
+
+El código H(7,4) toma 4 bits de datos y los codifica en 7 bits, añadiendo bits de paridad para detección y corrección de errores.
+
+Dividimos los datos en bloques de 4 bits:
+
+1111 0111 0101 0101
+
+Codificamos cada bloque con Hamming(7,4):
+
+1111 → 1111010
+
+0111 → 0111011
+
+0101 → 0101001
+
+0101 → 0101001
+
+Por lo que la secuencia codificada con Hamming es:
+
+1111010 0111011 0101001 0101001
+
+## Paso 3: Adición de la Secuencia de Inicio
+
+La secuencia de inicio de trama es "010101010" (9 bits). Al agregarla antes de los datos codificados:
+
+010101010 1111010 0111011 0101001 0101001
+
+## Paso 4: Resultado Final
+El paquete transmitido por la capa de enlace de datos es:
+
+0101010101111010011101101010010101001
 
 
 
