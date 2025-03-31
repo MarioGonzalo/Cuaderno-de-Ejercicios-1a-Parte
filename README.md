@@ -96,3 +96,55 @@ El combiner se encarga de combinar todas las longitudes de onda en una
 
 Más tarde el splitter distribuye esta longitud de onda por cada cable por lo que en los puntos marcados en el esquema tendrán la misma longitud de onda que será la combinación de las originales
 
+# Ejercicio 7
+
+Se considera una pila de protocolos de 4 capas. La capa 4 envía un bloque de 1 Kbyte.
+La capa 3 añade cabeceras de 256 bits y cada paquete es de 512 bytes. La capa 2
+añade cabeceras de 512 bits y el campo de datos de las tramas son de 128 bytes. La
+capa 1 añade a cada 30 bytes de datos, 32 bits de comienzo, un byte de parada, y 16
+bits de CRC. Dibujar todo el proceso de encapsulamiento del sistema transmisor y
+calcular la eficiencia del sistema.
+
+- Capa 4 (Bloque de datos):
+  - Tamaño: 1 KB = 8192 bits (1024 bytes × 8 bits/byte).
+
+- Capa 3:
+  - Se añaden cabeceras de 256 bits = 32 (256/8) bytes
+  - Cada paquete es de 512 bytes
+  - Para fragmentar los 1024 bytes de la capa 4 se tiene que quitar los 32 bytes de la cabecera al tamaño de los paquetes (512 - 32 = 480)
+  - $\frac{1024}{480} = 2,13 Por lo que se usarán 3 paquetes
+
+- Capa 2:
+  -  Se añaden cabeceras de 512 bits = 64 bytes
+  -  Las tramas son de 128 bytes
+  -  Las cabeceras ocupan 64 bytes que hay que quitar de las tramas (128 - 64 = 64)
+  -  $\frac{512}{64} = 8 tramas por paquete
+
+- Capa 1:
+  - 30 bytes de datos
+  - 32 bits de comienzo = 4 bytes
+  - 1 byte de parada
+  - 16 bits de CRC = 2 bytes
+  - 128 + 30 + 32 + 1 + 2 = 165 bytes
+
+Cálculo de eficiencia
+
+Se empleará la fórmula
+
+$$\frac{\text{Datos útiles}}{\text{Datos totales}} * 100$$
+
+Donde los datos útiles serán 1024 bytes y los datos totales serán 3960 por lo que serán:
+
+$$\frac{1024}{3960} * 100 = 25,858%$$
+
+
+
+
+
+
+
+
+
+
+
+
