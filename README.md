@@ -46,7 +46,7 @@ $$1THz = 10^{12}Hz $$
 
 Ahora sustituimos en la fórmula obteniendo:
 
-$$C = 10^{12} * log_2(1 + 31,62) \rightarrow C = 10^{12} * 5,028 \rightarrow  C = 5,028 * 10^{12] Hz = 5,028 THz$$
+$$C = 10^{12} * log_2(1 + 31,62) \rightarrow C = 10^{12} * 5,028 \rightarrow  C = 5,028 * 10^{12} Hz = 5,028 THz$$
 
 Como la transimisión máxima depende de la capacidad de los receptores, en este caso será un QSPK ya que es de 4 símbolos calcularemos la capacidad con esto y los baudios de los conversores optoeléctricos con la fórmula
 
