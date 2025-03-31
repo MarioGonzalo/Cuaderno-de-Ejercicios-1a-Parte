@@ -52,5 +52,19 @@ Como la transimisión máxima depende de la capacidad de los receptores, en este
 
 $$R = R_s * m = 100 * 10^9 * 2 = 200 * 10^9 = 200 GHz = 0,2 THz$$ 
 
+## Ejercicio 3
+
+## Ejercicio 4
+
+Indicar el tipo de modulación que se está utilizando y los problemas que plantea en los
+casos b y c.
+
+![Image](https://github.com/user-attachments/assets/afa8c61b-f4a7-4cfe-9e57-14ed388bf6a9)
+
+Se está empleando 16-QAM como se puede observar en el caso A ya que se ven 16 puntos.
+
+En el caso B se puede ver que los puntos están dispersos con respecto a su posición lo que puede representar ruido en el canal.
+
+En el caso C los puntos están dispersos y además fuera de su cuadrícula lo que representa el ruido del caso B pero también una desincronización y desajuste.
 
 
