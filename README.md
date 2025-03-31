@@ -54,6 +54,11 @@ $$R = R_s * m = 100 * 10^9 * 2 = 200 * 10^9 = 200 GHz = 0,2 THz$$
 
 ## Ejercicio 3
 
+Si en el sistema anterior se introduce un conector de fibra con un 20% de pérdidas,
+responder a las siguientes cuestiones:
+a) ¿Se verá afectada la tasa de transmisión máxima?
+b) ¿Qué velocidad máxima se tendrá en la salida?
+
 ## Ejercicio 4
 
 Indicar el tipo de modulación que se está utilizando y los problemas que plantea en los
@@ -67,4 +72,27 @@ En el caso B se puede ver que los puntos están dispersos con respecto a su posi
 
 En el caso C los puntos están dispersos y además fuera de su cuadrícula lo que representa el ruido del caso B pero también una desincronización y desajuste.
 
+## Ejercicio 5 
+
+Sabiendo que se transmiten dos señales de forma simultánea y que se aplican dos
+modulaciones diferentes:<br>
+a) Indicar qué dos modulaciones se están aplicando.<br>
+b) Recuperar la información de ambas señales.<br>
+
+![Image](https://github.com/user-attachments/assets/87550d4a-5e45-4954-b2ac-323281fcb874)
+
+# Ejercicio 6
+
+Indicar las longitudes de onda que se transmiten en cada uno de los puntos marcados
+en el esquema.
+
+![Image](https://github.com/user-attachments/assets/85c5cab4-817a-4acf-839f-8ce16659c439)
+
+En la imagen se observa un sistema de transmisión de señales ópticas con multiplexación por división de longitud de onda (WDM).
+
+Cada fibra tiene una diferente longitud de onda representado por $\lambda$
+
+El combiner se encarga de combinar todas las longitudes de onda en una
+
+Más tarde el splitter distribuye esta longitud de onda por cada cable por lo que en los puntos marcados en el esquema tendrán la misma longitud de onda que será la combinación de las originales
 
