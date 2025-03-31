@@ -1,3 +1,4 @@
+https://github.com/MarioGonzalo/Cuaderno-de-Ejercicios-1a-Parte.git
 # Cuaderno-de-Ejercicios-1a-Parte
 
 
@@ -34,7 +35,7 @@ $𝑆𝑁𝑅 = 10 𝑙𝑜𝑔_{10}(𝑆𝑁𝑅) = 10^{\frac{SNR}{10}}$ [dB]
 
 Lo que nos da como resultado:
 
-SNR lineal= $10^{\frac{15}{10}} = 10^1,5 = 31,62$
+SNR lineal= $10^{\frac{15}{10}} = 10^{1,5} = 31,62$
 
 Ahora emplearemos la fórmula de Shannon para calcular la tasa de transmisión siendo "B" el ancho de banda y "C" la tasa de transmisión máxima:
 
@@ -57,7 +58,14 @@ $$R = R_s * m = 100 * 10^9 * 2 = 200 * 10^9 = 200 GHz = 0,2 THz$$
 Si en el sistema anterior se introduce un conector de fibra con un 20% de pérdidas,
 responder a las siguientes cuestiones: <br>
 a) ¿Se verá afectada la tasa de transmisión máxima? <br>
+
+Las pérdidas del 20% afectan la potencia de la señal, pero si el sistema tiene suficiente presupuesto de potencia y los receptores pueden seguir detectando la señal correctamente, por lo que la tasa de transimisión máxima no se verá afectada por este cambio.
+
 b) ¿Qué velocidad máxima se tendrá en la salida? <br>
+
+Debido a que hay un 20% de pérdidas la velocidad máxima en la salida se reducirá ese porcentaje por lo que
+
+$$200 \text{ Gbaudios originales pasarán a } 200 * 0,8 = 160 Gbaudios$$
 
 ## Ejercicio 4
 
@@ -77,7 +85,20 @@ En el caso C los puntos están dispersos y además fuera de su cuadrícula lo qu
 Sabiendo que se transmiten dos señales de forma simultánea y que se aplican dos
 modulaciones diferentes:<br>
 a) Indicar qué dos modulaciones se están aplicando.<br>
+
+Las dos modulaciones presentes podrían ser:
+
+- Modulación en Frecuencia (FM): Se observa una variación en la frecuencia de la señal en ciertos intervalos.
+
+- Modulación en Amplitud (AM): Se nota una envolvente que cambia a lo largo del tiempo, lo que indica que la amplitud de la señal también está siendo modulada.
+
 b) Recuperar la información de ambas señales.<br>
+
+Para extraer la información de ambas señales:
+
+- Para la señal modulada en AM, se puede aplicar un detector de envolvente (rectificador + filtro).
+
+- Para la señal modulada en FM, se puede utilizar un discriminador de frecuencia o un demodulador de fase para recuperar la señal base.
 
 ![Image](https://github.com/user-attachments/assets/87550d4a-5e45-4954-b2ac-323281fcb874)
 
@@ -288,6 +309,15 @@ Dibujar un diagrama de ventana deslizante con un receptor con buffer para tres t
 y un transmisor que dispone de 5 tramas desordenadas que llegan en el orden 0, 3, 2,
 4, 1.
 
+| Paso | Trama Recibida | Ventana del Receptor | Acción |
+|------|---------------|----------------------|--------|
+| 1    | 0             | [0, -, -]            | Se almacena, se envía ACK 0 |
+| 2    | 3             | [0, -, -]            | Se descarta (fuera de ventana), se reenvía ACK 0 |
+| 3    | 2             | [0, -, 2]            | Se almacena, se envía ACK 2 |
+| 4    | 4             | [0, -, 2]            | Se descarta (fuera de ventana), se reenvía ACK 2 |
+| 5    | 1             | [0, 1, 2]            | Se almacena, ventana completa, se avanza |
+| 6    | -             | [3, 4, -]            | Se procesan 0, 1, 2 y se avanza la ventana |
+
 # Pregunta 16
 
 Un canal coaxial con FDM con una tasa de transmisión de 500 Mbits/s con una longitud
@@ -312,7 +342,7 @@ c) ¿Cuánto tiempo tardará un nodo en detectar una colisión?
 
 En un canal de transmisión, el tiempo para detectar una colisión está dado por:
 
-$$ T_{col} = \frac{2*L}{C} = \frac{2 *12584}{500 * 10^6} = 5,034 * 10^{-5} segundos
+$$ T_{col} = \frac{2*L}{C} = \frac{2 *12584}{500 * 10^6} = 5,034 * 10^{-5} segundos $$
 
 # Pregunta 17
 
@@ -351,6 +381,51 @@ Un nodo puente participa en ambas piconets, sincronizando la comunicación.
 
 # Pregunta 19
 
+Cuál será el rutado entre los siguientes switches si utilizan para su conexión un árbol
+de expansión con raíz B5.
+
+![Image](https://github.com/user-attachments/assets/5cf6e21a-7ea3-4f33-b7bc-a70a82329dc7)
+
+Utilizando el Protocolo Spanning Tree (STP), se sigue el siguiente proceso:
+
+Elección de la raíz: Se indica que B5 es la raíz.
+
+Selección de caminos más cortos: Se determinan las rutas de menor costo hacia B5.
+
+Eliminación de bucles: Se desactivan enlaces redundantes para evitar ciclos.
+
+Posible topología inicial del árbol:
+
+B5 se conecta a B3 (como nodo cercano).
+
+B3 se conecta a B1 y B4.
+
+B4 se conecta a B2.
+
+| Nodo | Ruta hasta B5 |
+|------|--------------|
+| B1   | B1 → B3 → B5 |
+| B2   | B2 → B4 → B3 → B5 |
+| B3   | B3 → B5 |
+| B4   | B4 → B3 → B5 |
 
 # Pregunta 20
 
+Conociendo el rutado del ejercicio anterior, realizar de nuevo el árbol de expansión que
+se produciría si el switch B3 dejara de estar activo
+
+![Image](https://github.com/user-attachments/assets/2d8c9a98-4ba8-42d0-9fb7-5fcb94dde82f)
+
+Si B3 deja de estar activo, el árbol de expansión debe reorganizarse sin ese nodo.
+
+Nueva topología:
+
+B5 se conectará directamente a otro switch disponible (B4 o B1).
+
+B4 tomará el rol que tenía B3 y conectará a los demás switches.
+
+| Nodo | Ruta hasta B5 |
+|------|--------------|
+| B1   | B1 → B4 → B5 |
+| B2   | B2 → B4 → B5 |
+| B4   | B4 → B5 |
